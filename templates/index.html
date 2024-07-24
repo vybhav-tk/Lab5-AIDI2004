@@ -1,0 +1,103 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Weight Prediction</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            background-color: #4D65A1;
+            color: white;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 20px -20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4D65A1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #4D65A1;
+        }
+        .prediction {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #4D65A1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Predict Fish Weight</h1>
+        </div>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="species">Species:</label>
+                <input type="text" id="species" name="species" required>
+            </div>
+            <div class="form-group">
+                <label for="length1">Length1 (cm):</label>
+                <input type="number" id="length1" name="length1" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="length2">Length2 (cm):</label>
+                <input type="number" id="length2" name="length2" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="length3">Length3 (cm):</label>
+                <input type="number" id="length3" name="length3" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="height">Height (cm):</label>
+                <input type="number" id="height" name="height" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="width">Width (cm):</label>
+                <input type="number" id="width" name="width" step="any" required>
+            </div>
+            <button type="submit" class="btn">Predict Weight</button>
+        </form>
+        <div class="prediction">
+            <h2>{{ prediction_text }}</h2>
+        </div>
+    </div>
+</body>
+</html>
